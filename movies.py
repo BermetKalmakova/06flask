@@ -27,7 +27,10 @@ def queryTitle(title):
 
 def queryYear(year):
     queryList = collection.find({"year": year})
-    return queryList
+    s = ""
+    for each in queryList:
+        s = s + each["title"] + ", " + str(each["year"]) + "; "
+    return s
 
 def queryDirector(director):
     queryList = collection.find({"director": director})
